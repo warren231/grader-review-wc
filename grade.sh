@@ -41,3 +41,4 @@ else
     TOTAL=$PASS
 fi
 echo You passed $PASS / $TOTAL tests
+# This is not displaying correctly, could use $RAN instead as it is working correctly
