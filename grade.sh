@@ -26,7 +26,7 @@ fi
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > java.txt
 cat java.txt
 
-LAST=`tail -1 java.txt`
+LAST=`tail -2 java.txt`
 
 PASS=`echo $LAST | grep -oP '(?<=OK \()\d+'`
 RAN=`echo $LAST | grep -oP '(?<=run: )\d+'`
@@ -35,7 +35,7 @@ FAIL=`echo $LAST | grep -oP '(?<=Failures: )\d+'`
 echo hi $RAN $FAIL
 if [[ -n $PASS ]]
 then
-    PASS=`echo "$RAN - $FAIL"`
+    PASS=$(($RAN - $FAIL))
     TOTAL=$RAN
 else
     TOTAL=$PASS

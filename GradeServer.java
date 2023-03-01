@@ -34,7 +34,7 @@ class ExecHelpers {
   static String exec(String[] cmd) throws IOException {
     Process p = new ProcessBuilder()
                     .command(Arrays.asList(cmd))
-                    .redirectErrorStream(true)
+                    //.redirectErrorStream(true)
                     .start();
     InputStream outputOfBash = p.getInputStream();
     return String.format("%s\n", streamToString(outputOfBash));
